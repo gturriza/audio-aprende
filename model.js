@@ -4,7 +4,7 @@ let bcrypt = require('bcryptjs');
 mongoose.Promise = global.Promise;
 
 
-let audioSchemas = mongoose.Schema({
+let audioSchema = mongoose.Schema({
 	nombre: { type : String },
 	habilidad: { type : String },
 	nvlCE: { type : String },
