@@ -79,7 +79,7 @@ app.get( "/api/audioaprende", ( req, res, next ) => {
 
 app.post( "/api/AudioApAn", jsonParser, ( req, res, next ) => {
 	console.log(req.body);
-	let inicio = req.body.nvlCE; //Body en el apiutil de alexa
+	let inicio = req.body.habilidad; //Body en el apiutil de alexa
  	let id = req.body.id;
  	// let id = req.body.id;
 
@@ -128,7 +128,7 @@ app.post("/api/AudioApAn3", jsonParser, (req, res, next) =>{
 	let id = req.body.id;
 	// let id = req.body.id;
 
-	VPList.postNivel(id,ultHabil)
+	VPList.postultHab(id,ultHabil)
 		.then( persona => {
 			return res.status( 201 ).json({
 				message : "Se cambio el valor",
