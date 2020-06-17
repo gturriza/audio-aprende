@@ -4,13 +4,13 @@ let bcrypt = require('bcryptjs');
 mongoose.Promise = global.Promise;
 
 
-let ejercicioSchema = mongoose.Schema({
+let audioSchema = mongoose.Schema({
 	nombre: { type : String },
-	nivel: { type : Number },
-	tiempoInicio: {type : Number},
-	tiempoFinal: {type : Number},
-	tiempoAcumulado: {type : Number},
-	diasAcumulados: {type : Number}
+	habilidad: { type : String },
+	nvlCE: { type : String },
+	ulthabilidad: { type : String },
+	experiencia: { type : String },
+	satisfaccion: { type : String }
 });
 
 // let userSchema = mongoose.Schema({
@@ -21,7 +21,7 @@ let ejercicioSchema = mongoose.Schema({
 // 				 required : true }
 // })
 
-let Vicepresidencia = mongoose.model( 'ejercicios', ejercicioSchema );
+let Vicepresidencia = mongoose.model( 'audioaprende', audioSchema );
 // let User = mongoose.model( 'User', userSchema );
 
 // let UserList = {
@@ -81,40 +81,40 @@ let VPList = {
 				});
 	}
 	,
-	 postTiempoInicio : function( id, tiempoInicio ){
+	 postHabilidad : function( id, hability ){
 		 console.log(id);
-		 return Vicepresidencia.findOneAndUpdate({nombre: id}, {tiempoInicio: tiempoInicio}, (err) => {
+		 return Vicepresidencia.findOneAndUpdate({nombre: id}, {habilidad: hability}, (err) => {
 			if (err) {
 				throw Error(error);
 			}
 		 });
 	 }
 	 ,
-	 postTiempoFinal: function(id, tiempoFinal){
+	 postultHab: function(id, ultHab){
 		console.log(id);
-		 return Vicepresidencia.findOneAndUpdate({nombre: id}, {tiempoFinal: tiempoFinal}, (err, doc) =>{
+		 return Vicepresidencia.findOneAndUpdate({nombre: id}, {ulthabilidad: ultHab}, (err, doc) =>{
 			 if(err){
 				 throw Error(error);
 			 }
 			 return doc
 		 });
 	 }, 
-	 postNivel: function(id, nivel){
-		 return Vicepresidencia.findOneAndUpdate({nombre: id}, {nivel: nivel}, (err) =>{
+	 postNivelCE: function(id, nivel){
+		 return Vicepresidencia.findOneAndUpdate({nombre: id}, {nvlCE: nivel}, (err) =>{
 			 if(err){
 				 throw Error(error);
 			 }
 		 });
 	 },
-	 postTiempoAcum: function(id, tiempoAcumulado){
-		 return Vicepresidencia.findOneAndUpdate({nombre: id}, {tiempoAcumulado: tiempoAcumulado}, (err) =>{
+	 postExp: function(id, exp){
+		 return Vicepresidencia.findOneAndUpdate({nombre: id}, {experiencia: exp}, (err) =>{
 			 if(err){
 				 throw Error(error);
 			 }
 		 });
 	 },
-	 postDiasAcum: function(id, diasAcum){
-		 return Vicepresidencia.findOneAndUpdate({nombre: id}, {diasAcumulados: diasAcum}, (err) => {
+	 postSatisfaccion: function(id, satis){
+		 return Vicepresidencia.findOneAndUpdate({nombre: id}, {satisfaccion: satis}, (err) => {
 			 if(err){
 				 throw Error(error);
 			 }
